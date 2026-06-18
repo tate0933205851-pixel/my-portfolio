@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قصر الملوك | عقارات فاخرة VIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --gold: #d4af37;
+            --gold-light: #f4e4a6;
+            --black: #0a0a0a;
+            --dark: #1a1a2e;
+            --glass: rgba(255,255,255,0.05);
+        }
+        
+        body { 
+            font-family: 'Tajawal', sans-serif; 
+            background: var(--black); 
+            color: white; 
+            overflow-x: hidden;
+        }
+
+        /* ====== Navbar ====== */
+        nav { 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            background: rgba(10,10,10,0.95); 
+            backdrop-filter: blur(20px); 
+            padding: 20px 50px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            z-index: 1000; 
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .logo { 
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 32px; 
+            font-weight: 700; 
+            color: var(--gold);
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
+            text-shadow: 0 0 20px rgba(212,175,55,0.5);
+        }
+
+        .nav-links { 
+            display: flex; 
+            gap: 40px; 
+            list-style: none; 
+        }
+
+        .nav-links a { 
+            text-decoration: none; 
+            color: white; 
+            font-weight: 700; 
+            font-size: 16px; 
+            transition: all 0.3s; 
+            position: relative;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover { 
+            color: var(--gold);
+            background: rgba(212,175,55,0.1);
+        }
+
+        /* ====== Hero Section ====== */
+        .hero { 
+            height: 100vh; 
+            background: linear-gradient(135deg, rgba(10,10,10,0.9) 0%, rgba(26,26,46,0.8) 100%), 
+                        url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920'); 
+            background-size: cover; 
+            background-position: center; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(212,175,55,0.3)"/></svg>');
+            background-size: 50px 50px;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content h1 { 
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 80px; 
+            font-weight: 700; 
+            margin-bottom: 20px; 
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0%, 100% { filter: brightness(1); }
+            50% { filter: brightness(1.3); }
+        }
+
+        .hero-content p { 
+            font-size: 28px; 
+            margin-bottom: 40px; 
+            color: rgba(255,255,255,0.8);
+            letter-spacing: 2px;
+        }
+
+        .btn-gold { 
+            display: inline-block; 
+            padding: 20px 60px; 
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%); 
+            color: var(--black); 
+            text-decoration: none; 
+            font-size: 20px; 
+            font-weight: 800; 
+            border-radius: 50px; 
+            box-shadow: 0 10px 40px rgba(212,175,55,0.4); 
+            transition: all 0.3s; 
+            border: 2px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-gold:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 60px rgba(212,175,55,0.6);
+        }
+
+        .btn-gold::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+            transform: rotate(45deg);
+            transition: all 0.5s;
+        }
+
+        .btn-gold:hover::after {
+            left: 100%;
+        }
+
+        /* ====== Stats Bar ====== */
+        .stats-bar {
+            background: linear-gradient(90deg, var(--dark), var(--black), var(--dark));
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+            border-top: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+        }
+
+        .stat-item h3 {
+            font-size: 48px;
+            color: var(--gold);
+            font-weight: 900;
+            text-shadow: 0 0 20px rgba(212,175,55,0.5);
+        }
+
+        .stat-item p {
+            color: rgba(255,255,255,0.7);
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        /* ====== About Section ====== */
+        .about { 
+            padding: 120px 50px; 
+            background: var(--black);
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+        }
+
+        .section-title { 
+            text-align: center; 
+            margin-bottom: 80px; 
+        }
+
+        .section-title h2 { 
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 52px; 
+            color: var(--gold);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title p { 
+            color: rgba(255,255,255,0.7); 
+            font-size: 20px; 
+            margin-top: 25px; 
+        }
+
+        /* ====== Properties Section ====== */
+        .properties { 
+            padding: 120px 50px; 
+            background: linear-gradient(180deg, var(--black) 0%, var(--dark) 100%);
+        }
+
+        .properties-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); 
+            gap: 40px; 
+        }
+
+        .property-card { 
+            background: var(--glass);
+            border-radius: 25px; 
+            overflow: hidden; 
+            border: 1px solid rgba(212,175,55,0.2);
+            transition: all 0.5s;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .property-card:hover { 
+            transform: translateY(-15px); 
+            border-color: var(--gold);
+            box-shadow: 0 30px 60px rgba(212,175,55,0.2);
+        }
+
+        .property-img { 
+            height: 300px; 
+            background-size: cover; 
+            background-position: center; 
+            position: relative;
+        }
+
+        .property-img::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(transparent, var(--dark));
+        }
+
+        .property-badge { 
+            position: absolute; 
+            top: 20px; 
+            right: 20px; 
+            background: linear-gradient(135deg, var(--gold), #b8941f); 
+            color: var(--black); 
+            padding: 10px 25px; 
+            border-radius: 25px; 
+            font-weight: 800; 
+            font-size: 14px;
+            z-index: 1;
+        }
+
+        .property-info { 
+            padding: 35px; 
+            position: relative;
+        }
+
+        .property-info h3 { 
+            font-size: 28px; 
+            color: var(--gold);
+            margin-bottom: 12px;
+            font-family: 'Reem Kufi', sans-serif;
+        }
+
+        .property-location { 
+            color: rgba(255,255,255,0.6); 
+            font-size: 16px; 
+            margin-bottom: 20px; 
+        }
+
+        .property-price { 
+            font-size: 32px; 
+            color: var(--gold); 
+            font-weight: 900;
+            text-shadow: 0 0 10px rgba(212,175,55,0.3);
+        }
+
+        /* ====== VIP Features ====== */
+        .vip-features {
+            padding: 120px 50px;
+            background: var(--black);
+            position: relative;
+        }
+
+        .vip-features::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .features-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 40px; 
+            margin-top: 60px; 
+        }
+
+        .feature-box { 
+            padding: 50px 30px; 
+            background: var(--glass);
+            border-radius: 25px; 
+            border: 1px solid rgba(212,175,55,0.2);
+            transition: all 0.5s;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-box:hover { 
+            border-color: var(--gold);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(212,175,55,0.2);
+        }
+
+        .feature-icon { 
+            font-size: 60px; 
+            margin-bottom: 25px;
+            filter: drop-shadow(0 0 10px rgba(212,175,55,0.5));
+        }
+
+        .feature-box h3 { 
+            font-size: 24px; 
+            margin-bottom: 15px; 
+            color: var(--gold);
+            font-family: 'Reem Kufi', sans-serif;
+        }
+
+        .feature-box p { 
+            color: rgba(255,255,255,0.7); 
+            line-height: 1.8; 
+        }
+
+        /* ====== Contact Section ====== */
+        .contact { 
+            padding: 120px 50px; 
+            background: linear-gradient(135deg, var(--dark) 0%, var(--black) 100%);
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        .contact-wrapper { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 60px; 
+            max-width: 1100px; 
+            margin: 0 auto; 
+        }
+
+        .contact-form { 
+            background: var(--glass);
+            padding: 50px; 
+            border-radius: 25px; 
+            border: 1px solid rgba(212,175,55,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form h3 { 
+            color: var(--gold); 
+            font-size: 32px; 
+            margin-bottom: 40px; 
+            text-align: center;
+            font-family: 'Reem Kufi', sans-serif;
+        }
+
+        .form-group { 
+            margin-bottom: 25px; 
+        }
+
+        .form-group label { 
+            display: block; 
+            color: var(--gold); 
+            font-weight: 700; 
+            margin-bottom: 10px; 
+            font-size: 16px; 
+        }
+
+        .form-group input,
+        .form-group textarea { 
+            width: 100%; 
+            padding: 18px 25px; 
+            border: 1px solid rgba(212,175,55,0.3); 
+            border-radius: 15px; 
+            background: rgba(255,255,255,0.05); 
+            color: white; 
+            font-size: 18px; 
+            font-family: 'Tajawal', sans-serif; 
+            transition: all 0.3s; 
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus { 
+            outline: none; 
+            border-color: var(--gold); 
+            box-shadow: 0 0 20px rgba(212,175,55,0.2);
+        }
+
+        .btn-submit { 
+            width: 100%; 
+            padding: 20px; 
+            background: linear-gradient(135deg, var(--gold) 0%, #b8941f 100%); 
+            color: var(--black); 
+            border: none; 
+            border-radius: 15px; 
+            font-size: 20px; 
+            font-weight: 800; 
+            cursor: pointer; 
+            transition: all 0.3s;
+            font-family: 'Tajawal', sans-serif;
+        }
+
+        .btn-submit:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 40px rgba(212,175,55,0.4);
+        }
+
+        /* ====== Footer ====== */
+        footer { 
+            background: var(--black); 
+            color: white; 
+            padding: 60px; 
+            text-align: center;
+            border-top: 1px solid var(--gold);
+        }
+
+        footer .logo {
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        /* ====== Responsive ====== */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 48px; }
+            .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .about-content, .contact-wrapper { grid-template-columns: 1fr; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">👑 قصر الملوك</div>
+        <ul class="nav-links">
+            <li><a href="#home">الرئيسية</a></li>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#properties">عقاراتنا</a></li>
+            <li><a href="#vip">VIP</a></li>
+            <li><a href="#contact">تواصل معنا</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>قصر الملوك</h1>
+            <p>عقارات فاخرة بمعايير ملكية</p>
+            <a href="#properties" class="btn-gold">استكشف القصور</a>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="stat-item">
+            <h3>500+</h3>
+            <p>قصر مباع</p>
+        </div>
+        <div class="stat-item">
+            <h3>25+</h3>
+            <p>سنة خبرة</p>
+        </div>
+        <div class="stat-item">
+            <h3>100%</h3>
+            <p>رضا العملاء</p>
+        </div>
+        <div class="stat-item">
+            <h3>50+</h3>
+            <p>جائزة عالمية</p>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>من نحن</h2>
+                <p>نحن نقدم لك تجربة عقارية فاخرة بلا حدود</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="properties" id="properties">
+        <div class="container">
+            <div class="section-title">
+                <h2>قصورنا الملكية</h2>
+                <p>اختر من بين أفخم القصور في العالم</p>
+            </div>
+            <div class="properties-grid">
+                <div class="property-card">
+                    <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=600');">
+                        <span class="property-badge">VIP ملكي</span>
+                    </div>
+                    <div class="property-info">
+                        <h3>قصر الذهب</h3>
+                        <div class="property-location">📍 دبي، الإمارات</div>
+                        <div class="property-price">50,000,000 درهم</div>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600');">
+                        <span class="property-badge">VIP ملكي</span>
+                    </div>
+                    <div class="property-info">
+                        <h3>قصر الماس</h3>
+                        <div class="property-location">📍 الرياض، السعودية</div>
+                        <div class="property-price">35,000,000 ريال</div>
+                    </div>
+                </div>
+                <div class="property-card">
+                    <div class="property-img" style="background-image: url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600');">
+                        <span class="property-badge">VIP ملكي</span>
+                    </div>
+                    <div class="property-info">
+                        <h3>قصر اللؤلؤ</h3>
+                        <div class="property-location">📍 أبوظبي، الإمارات</div>
+                        <div class="property-price">45,000,000 درهم</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="vip-features" id="vip">
+        <div class="container">
+            <div class="section-title">
+                <h2>لماذا قصر الملوك؟</h2>
+                <p>نحن نقدم لك تجربة ملكية فريدة</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <div class="feature-icon">💎</div>
+                    <h3>فخامة لا مثيل لها</h3>
+                    <p>قصور بتصاميم عالمية من أفضل المهندسين</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🔒</div>
+                    <h3>خصوصية تامة</h3>
+                    <p>أنظمة أمنية متطورة وحراسة على مدار الساعة</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🌟</div>
+                    <h3>خدمة ملكية</h3>
+                    <p>طاقم خدمة متخصص لراحتك</p>
+                </div>
+                <div class="feature-box">
+                    <div class="feature-icon">🏆</div>
+                    <h3>مواقع حصرية</h3>
+                    <p>أرقى المواقع في أجمل مدن العالم</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3 style="color: var(--gold); font-size: 32px; margin-bottom: 40px; font-family: 'Reem Kufi', sans-serif;">تواصل معنا</h3>
+                <div style="margin-bottom: 25px; padding: 25px; background: var(--glass); border-radius: 15px; border: 1px solid rgba(212,175,55,0.2);">
+                    <strong style="color: var(--gold);">📍 العنوان</strong><br>
+                    برج قصر الملوك، شارع الشيخ زايد، دبي
+                </div>
+                <div style="margin-bottom: 25px; padding: 25px; background: var(--glass); border-radius: 15px; border: 1px solid rgba(212,175,55,0.2);">
+                    <strong style="color: var(--gold);">📞 الهاتف</strong><br>
+                    +971 50 888 8888
+                </div>
+                <div style="margin-bottom: 25px; padding: 25px; background: var(--glass); border-radius: 15px; border: 1px solid rgba(212,175,55,0.2);">
+                    <strong style="color: var(--gold);">📧 الإيميل</strong><br>
+                    vip@qasr-almolook.com
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="event.preventDefault(); alert('تم إرسال رسالتك بنجاح! سنتواصل معك قريبًا.');">
+                <h3>احجز قصرك الآن</h3>
+                <div class="form-group">
+                    <label>الاسم</label>
+                    <input type="text" placeholder="أ
